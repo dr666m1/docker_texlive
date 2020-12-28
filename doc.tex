@@ -1,0 +1,49 @@
+\documentclass{jlreq}
+%math
+\usepackage{mathtools,amssymb,bm}
+%image
+\usepackage{graphicx,xcolor}
+%box
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+%table, figure
+\usepackage{float}
+\begin{document}
+\section{概要}
+texファイルをコンパイルするためのdockerイメージです。
+
+\section{使い方}
+\subsection{基本}
+以下のコマンドを実行すると、
+カレントディレクトリのtexファイルからpdfを作成します。
+複数のtexファイルが見つかった場合、
+全てのファイルをコンパイルします。
+
+\begin{tcolorbox}[breakable]
+\setlength{\baselineskip}{12pt}
+\begin{verbatim}
+docker container run \
+  --rm -it \
+  -v $(pwd):/home/app/sync \
+  ghcr.io/dr666m1/texlive
+\end{verbatim}
+
+\end{tcolorbox}
+
+\subsection{オプション}
+\subsubsection{o}
+outputの略です。ただし
+\verb|--output|ではなく
+\verb|-o|と入力してください。
+
+\begin{description}
+  \item[all] 全てのファイルを出力
+  \item[png] pdfをpngに変換し、pngのみ出力
+\end{description}
+
+\subsubsection{ヘルプ}
+末尾に\verb|--help|を付けるとWebサーバーが起動し、
+ブラウザからこのpdfを起動できます。
+その際は
+\verb|-p 8080:8080|を指定してください。
+\end{document}
