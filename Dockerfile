@@ -21,6 +21,6 @@ ENV PATH=$PATH:/home/$USER/build
 
 USER $UID
 
-RUN latexmk doc
+RUN latexmk sample
 
 ENTRYPOINT ["entrypoint.sh"]

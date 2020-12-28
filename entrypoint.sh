@@ -1,7 +1,6 @@
 #!/bin/bash
 if [[ ${1#--} == "help" ]]; then
-    echo "open 'http://localhost:8080/doc.pdf' below to see the pdf document."
-    python3 -m http.server 8080 -d $HOME/build > /dev/null
+    echo "visit 'https://github.com/dr666m1/docker_texlive' and check README.md"
     exit 0
 fi
 
@@ -16,7 +15,7 @@ while getopts o: OPT; do
             files=$(find . -maxdepth 1 -type f -name '*.pdf')
             for f in $files; do
                 pdfcrop --margins 3 $f ${f%.pdf}_crop.pdf
-                pdftocairo -png -scale-to 200 -transp ${f%.pdf}_crop.pdf
+                pdftocairo -png -scale-to 500 -transp ${f%.pdf}_crop.pdf
             done
             if [[ ${OPTARG#=} == "png" ]]; then
                 cp $HOME/tmp/*.png $HOME/sync

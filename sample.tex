@@ -1,0 +1,9 @@
+\documentclass{jlreq}
+\pagestyle{empty}
+\usepackage{mathtools,amssymb,bm}
+\begin{document}
+\begin{align*}
+  f(\bm{x} \mid \mu, \sigma^2) &= \prod^{n}_{i=1} f(x_{i} \mid \mu, \sigma^2) \\
+                               &= \prod^{n}_{i=1} \frac{1}{\sqrt{2\pi}\sigma} \exp \left[ \frac{-1}{2\sigma^2}(x - \mu)^2 \right]
+\end{align*}
+\end{document}
